@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="115dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:background="#08ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <com.github.siyamed.shapeimageview.mask.PorterShapeImageView
+            android:layout_margin="6dp"
+            android:id="@+id/movieposteIMG"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/img1"
+            app:siShape="@drawable/shape_rounded_rectangle"
+            app:siSquare="true"
+             />
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/movietitleTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:text="Bajrang Bhaijaan"
+                android:textColor="#F4F3F0"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+
+
+            <TextView
+                android:id="@+id/moviedescTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="right"
+                android:text=" "
+                android:textColor="#AA926D"
+                android:textSize="16dp"
+                tools:ignore="HardcodedText,RtlHardcoded,SpUsage" />
+        </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:padding="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/moviettleTV"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/view"-->
+            <!--/>-->
+
+
+            <!--<ImageView-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:id="@+id/movieescTV"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:src="@drawable/dwen"-->
+ <!--/>-->
+        <!--</LinearLayout>-->
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="-3dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#e1e1e1" />
+</LinearLayout>

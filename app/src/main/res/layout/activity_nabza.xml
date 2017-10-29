@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context="com.example.ok.makhtotat.Nabza">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="50dp">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="عن التطبيق"
+            android:textColor="#F4F3F0"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nabza"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="من بين المجموعات الخاصة المتوفرة لدى مقتنيات المكتبة البريطانية في الوقت الحاضر مجموعات تأسيس المتحف البريطاني في سنة ١٧٥٣ والتي اشتملت على مجموعات العالم الفيزيائي السير هانز سلون (١٦٦٠- ١٧٥٣)، حيث تتضمن تلك المجموعات حوالي ١٢٠ مخطوطة عربية، ومجموعة كلوديوس جيمس ريتش (١٧٨٦ -١٨٢١) التي اشتراها المتحف البريطاني في سنة ١٨٢٥ ومجموعة ريتشارد جونسون (١٧٥٣ -١٨٠٧) التي اشترتها شركة الهند الشرقية في ١٨٠٧. وهذه أمثلة نموذجية للطريقة التي جاءت بها تلك المخطوطات إلى المكتبة، سواءً عن طريق الهدايا أوعن طريق شرائها من الأشخاص الذين عملوا في الهند أو الشرق الأوسط لصالح بريطانيا بصفة رسمية. كان ريتش مقيمًا في بلاط الباشا في بغداد حيث كان في وضع يؤهله لإتقان اللغات الشرقية ولجمع مجموعة تضم ٣٩٠ مخطوطة من المخطوطات العربية. هذا وقد تمكن جونسون من خلال عمله لدى شركة الهند الشرقية في لكناو وحيدر آباد من إقامة علاقات وطيدة مع كبار الفنانين والكُتاب والتي حصل من خلالهما على مجموعة فريدة من المخطوطات."
+            android:textColor="#F4F3F0" />
+</LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

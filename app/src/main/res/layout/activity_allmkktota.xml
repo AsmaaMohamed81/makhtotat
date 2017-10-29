@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.example.ok.makhtotat.allmkktota">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="80dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/Esearch"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:backgroundTint="#dc9e48"
+            android:hint="اسم المخطوطه"
+            android:inputType="textPersonName"
+            android:textColor="#F4F3F0"
+            android:textColorHint="#F4F3F0"
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/g"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/button1"
+            android:onClick="search"
+            android:text="بحث"
+            android:textColor="#F4F3F0"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/gg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/button1"
+            android:text="جميعها"
+            android:textColor="#F4F3F0"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main" />
+
+
+</LinearLayout>
