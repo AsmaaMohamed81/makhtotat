@@ -1,4 +1,4 @@
-package com.example.ok.makhtotat;
+package com.makhtotat.ok.makhtotat;
 
 import java.util.ArrayList;
 public  class Urls {

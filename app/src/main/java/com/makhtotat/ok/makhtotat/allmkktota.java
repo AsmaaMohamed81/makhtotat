@@ -1,4 +1,4 @@
-package com.example.ok.makhtotat;
+package com.makhtotat.ok.makhtotat;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

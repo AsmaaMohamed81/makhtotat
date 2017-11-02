@@ -6,7 +6,7 @@
     android:background="@drawable/back"
     android:fitsSystemWindows="true"
     android:orientation="vertical"
-    tools:context="com.example.ok.makhtotat.allmkktota">
+    tools:context="com.makhtotat.ok.makhtotat.allmkktota">
 
     <LinearLayout
         android:layout_width="match_parent"

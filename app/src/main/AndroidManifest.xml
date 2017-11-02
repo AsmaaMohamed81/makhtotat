@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.ok.makhtotat">
+    package="com.makhtotat.ok.makhtotat">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -16,7 +18,7 @@
         android:supportsRtl="false"
         tools:replace="android:supportsRtl"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.makhtotat.ok.makhtotat.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,11 +26,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".allmkktota"
+            android:name="com.makhtotat.ok.makhtotat.allmkktota"
             />
-        <activity android:name=".gallary" />
-        <activity android:name=".Nabza" />
-        <activity android:name=".View"></activity>
+        <activity android:name="com.makhtotat.ok.makhtotat.gallary"
+            android:uiOptions="splitActionBarWhenNarrow" />
+        <activity android:name="com.makhtotat.ok.makhtotat.Nabza" />
+        <activity android:name="com.makhtotat.ok.makhtotat.View"></activity>
     </application>
 
 </manifest>

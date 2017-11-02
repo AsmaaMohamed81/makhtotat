@@ -1,22 +1,31 @@
-package com.example.ok.makhtotat;
+package com.makhtotat.ok.makhtotat;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import ooo.oxo.library.widget.TouchImageView;
 
 public class gallary extends AppCompatActivity {
-    Button next, back, dwon;
+    Button next, back, dwon,dowen;
     TouchImageView img;
     int i;
     String ss1, ss2, ss3;
@@ -30,6 +39,7 @@ public class gallary extends AppCompatActivity {
     ArrayList<String> gllary = new ArrayList<String>();
     int n = 0;
   public static   int v = 0;
+    public static   int save = 0;
 
     ArrayList<String> URLm = new ArrayList<>();
  static    int y;
@@ -58,6 +68,7 @@ for ( y=0;y<names.a.length;y++){
     if (names.a[y].equals(intent.getStringExtra("title"))){
         urll = Urls.uu.get(y);
         v=y+1;
+        save=y;
 
 
     }
@@ -93,6 +104,8 @@ for ( y=0;y<names.a.length;y++){
 
         next = (Button) findViewById(R.id.next);
         dwon = (Button) findViewById(R.id.download);
+        dowen = (Button) findViewById(R.id.first);
+
 
         back = (Button) findViewById(R.id.back);
         img = (TouchImageView) findViewById(R.id.web);
@@ -153,18 +166,133 @@ for ( y=0;y<names.a.length;y++){
             }
         });
 
+        dowen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(gallary.this, gllary.get(n)+"", Toast.LENGTH_SHORT).show();
+                Picasso.with(getApplicationContext()).load(gllary.get(n)).into(targetg);
+
+            }
+        });
+
         dwon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
              //  Toast.makeText(gallary.this,v+ "", Toast.LENGTH_SHORT).show();
 
-                Intent n = new Intent(gallary.this, com.example.ok.makhtotat.View.class);
+                Intent n = new Intent(gallary.this, com.makhtotat.ok.makhtotat.View.class);
                 startActivity(n);
 
 
             }
         });
     }
+
+    private Target target = new Target() {
+        @Override
+        public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
+
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    File sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                    File folder = new File(sd, "/Picasso/");
+                    if (!folder.exists()) {
+                        if (!folder.mkdir()) {
+                            Log.e("ERROR", "Cannot create a directory!");
+                        } else {
+                            folder.mkdir();
+                        }
+                    }
+
+                    File[] fileName = {new File(folder, "one.jpg"), new File(folder, "two.jpg")};
+
+                    for (int i=0; i<fileName.length; i++) {
+
+                        if (!fileName[i].exists()) {
+                            try {
+                                fileName[i].createNewFile();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+
+                            try {
+                                FileOutputStream outputStream = new FileOutputStream(String.valueOf(fileName[i]));
+                                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+                                outputStream.close();
+
+                            } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+                    }
+
+                }
+            }).start();
+
+        }
+
+        @Override
+        public void onBitmapFailed(Drawable errorDrawable) {
+
+        }
+
+        @Override
+        public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+        }
+    };
+
+    private Target targetg = new Target() {
+        @Override
+        public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+int ii = 0;
+                    File filepath = Environment.getExternalStorageDirectory();
+                    File filee = null;
+                    File file = null;
+                    for (int i =0 ; i <names.a.length ; i++) {
+     filee = new File(
+            filepath.getAbsolutePath() + "/ " + names.a[save] + "/");
+
+    filee.mkdirs();
+
+                    }
+                        file = new File(filee, names.a[save] +ii + ".png");
+
+                    // Create a name for the saved image
+                    //File file = new File(filee, "myimage.png");
+
+
+                    try {
+                        file.createNewFile();
+                        ii++;
+
+                        FileOutputStream ostream = new FileOutputStream(file);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG,100,ostream);
+                        ostream.close();
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }).start();
+        }
+
+        @Override
+        public void onBitmapFailed(Drawable errorDrawable) {}
+
+        @Override
+        public void onPrepareLoad(Drawable placeHolderDrawable) {}
+    };
 
 }

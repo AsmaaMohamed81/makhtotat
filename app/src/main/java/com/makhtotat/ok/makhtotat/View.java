@@ -1,7 +1,7 @@
-package com.example.ok.makhtotat;
+package com.makhtotat.ok.makhtotat;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -9,22 +9,24 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class Nabza extends AppCompatActivity {
-
+public class View extends AppCompatActivity {
+    int ga;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_nabza);
+        setContentView(R.layout.activity_view);
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/boahmed.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
-        TextView   textread=(TextView)findViewById(R.id.nabza);
+
+        TextView   textread=(TextView)findViewById(R.id.textview);
+
 
 
 
         StringBuilder text=new StringBuilder();
 
         try {
-            InputStream input = getAssets().open("nabza.txt");
+            InputStream input = getAssets().open("m"+gallary.v+".txt");
             InputStreamReader isr = new InputStreamReader(input);
             BufferedReader br = new BufferedReader(isr);
 
@@ -42,7 +44,4 @@ public class Nabza extends AppCompatActivity {
 
         textread.setText(text);
     }
-
-
-
 }

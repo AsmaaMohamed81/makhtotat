@@ -1,4 +1,4 @@
-package com.example.ok.makhtotat;
+package com.makhtotat.ok.makhtotat;
 
 /**
  * Created by ok on 29/10/2017.
