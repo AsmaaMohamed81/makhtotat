@@ -44,14 +44,26 @@
                 app:siSquare="true" />
 
         </LinearLayout>
+        <Button
+            android:layout_marginTop="130dp"
 
+            android:id="@+id/makhtota"
+            android:layout_width="150dp"
+            android:layout_marginBottom="10dp"
+
+            android:layout_height="wrap_content"
+            android:background="@drawable/button1"
+            android:text="المخطوطات"
+            android:textColor="#F4F3F0"
+            android:textStyle="bold"
+
+
+            />
         <Button
 
             android:id="@+id/nabza"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="130dp"
             android:background="@drawable/button1"
             android:text="نبذه عن التطبيق"
             android:textColor="#F4F3F0"
@@ -62,16 +74,6 @@
 
             />
 
-        <Button
-            android:id="@+id/makhtota"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button1"
-            android:text="المخطوطات"
-            android:textColor="#F4F3F0"
-            android:textStyle="bold"
 
-
-            />
     </LinearLayout>
 </LinearLayout>

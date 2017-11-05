@@ -21,11 +21,12 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import ooo.oxo.library.widget.TouchImageView;
 
 public class gallary extends AppCompatActivity {
-    Button next, back, dwon,dowen;
+    Button next, back, about, dowen, first, end;
     TouchImageView img;
     int i;
     String ss1, ss2, ss3;
@@ -38,11 +39,14 @@ public class gallary extends AppCompatActivity {
 
     ArrayList<String> gllary = new ArrayList<String>();
     int n = 0;
-  public static   int v = 0;
+    int fir = 0;
+
+    public static int v = 0;
     public static   int save = 0;
 
     ArrayList<String> URLm = new ArrayList<>();
  static    int y;
+    String urll = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +58,6 @@ public class gallary extends AppCompatActivity {
 
         Urls url = new Urls();
         url.url();
-        String urll="";
        /* if(allmkktota.flag==false) {
              urll = Urls.uu.get(allmkktota.m);
 
@@ -103,8 +106,12 @@ for ( y=0;y<names.a.length;y++){
 
 
         next = (Button) findViewById(R.id.next);
-        dwon = (Button) findViewById(R.id.download);
-        dowen = (Button) findViewById(R.id.first);
+        about = (Button) findViewById(R.id.about);
+
+        first = (Button) findViewById(R.id.first);
+        end = (Button) findViewById(R.id.end);
+
+        dowen = (Button) findViewById(R.id.dwnload);
 
 
         back = (Button) findViewById(R.id.back);
@@ -166,16 +173,37 @@ for ( y=0;y<names.a.length;y++){
             }
         });
 
+
+        first.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                n = 0;
+                Picasso.with(getApplicationContext()).load(gllary.get(n)).into(img);
+
+
+            }
+        });
+
+        end.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                n = allmkktota.moviesStories[j] - 1;
+                Picasso.with(getApplicationContext()).load(gllary.get(n)).into(img);
+
+
+            }
+        });
+
         dowen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(gallary.this, gllary.get(n)+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(gallary.this, "تم الحفظ", Toast.LENGTH_SHORT).show();
                 Picasso.with(getApplicationContext()).load(gllary.get(n)).into(targetg);
 
             }
         });
 
-        dwon.setOnClickListener(new View.OnClickListener() {
+        about.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -257,17 +285,21 @@ for ( y=0;y<names.a.length;y++){
                 public void run() {
 
 int ii = 0;
+                    Calendar calendar = Calendar.getInstance();
+
+
                     File filepath = Environment.getExternalStorageDirectory();
                     File filee = null;
                     File file = null;
-                    for (int i =0 ; i <names.a.length ; i++) {
-     filee = new File(
-            filepath.getAbsolutePath() + "/ " + names.a[save] + "/");
 
-    filee.mkdirs();
+                    File myImageFile = new File(filepath.getAbsolutePath(), "/مخطوطات/");
+                    for (int i =0 ; i <names.a.length ; i++) {
+                        filee = new File(myImageFile + "/ " + names.a[save] + "/");
+
+                        filee.mkdirs();
 
                     }
-                        file = new File(filee, names.a[save] +ii + ".png");
+                    file = new File(filee, "imge_" + n + ".png");
 
                     // Create a name for the saved image
                     //File file = new File(filee, "myimage.png");
@@ -275,7 +307,6 @@ int ii = 0;
 
                     try {
                         file.createNewFile();
-                        ii++;
 
                         FileOutputStream ostream = new FileOutputStream(file);
                         bitmap.compress(Bitmap.CompressFormat.JPEG,100,ostream);
