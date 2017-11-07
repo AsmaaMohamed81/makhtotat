@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class allmkktota extends AppCompatActivity {
-    List<IndianMovie> Alist_Search = new ArrayList<>();
+    List<Maktotat> Alist_Search = new ArrayList<>();
     EditText esarch;
     Button g,all;
-    List<IndianMovie> movies = new ArrayList<>();
+    List<Maktotat> movies = new ArrayList<>();
     RecyclerView v;
 
     static int m;
@@ -64,8 +64,8 @@ Thread thread = new Thread(new Runnable() {
     public void run() {
         for (int i = 0; i < moviesStories.length; i++) {
 
-            IndianMovie movie =
-                    new IndianMovie(movienames[i], moviesStories[i], posters[i]);
+            Maktotat movie =
+                    new Maktotat(movienames[i], moviesStories[i], posters[i]);
 
             movies.add(movie);
 
@@ -89,8 +89,8 @@ Thread thread = new Thread(new Runnable() {
 
                    for (int i = 0; i < moviesStories.length; i++) {
 
-                       IndianMovie movie =
-                               new IndianMovie(movienames[i], moviesStories[i], posters[i]);
+                       Maktotat movie =
+                               new Maktotat(movienames[i], moviesStories[i], posters[i]);
 
                        movies.add(movie);
 
@@ -123,8 +123,8 @@ Thread thread = new Thread(new Runnable() {
 
             if (item.contains(item_search)) {
 
-                IndianMovie movie =
-                        new IndianMovie(movienames[i], moviesStories[i], posters[i]);
+                Maktotat movie =
+                        new Maktotat(movienames[i], moviesStories[i], posters[i]);
                 Alist_Search.add(movie);
 
                 m = i;

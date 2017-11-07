@@ -31,7 +31,7 @@ public class gallary extends AppCompatActivity {
 
 
 
-    IndianMovie movie;
+    Maktotat movie;
 
 
     ArrayList<String> gllary = new ArrayList<String>();

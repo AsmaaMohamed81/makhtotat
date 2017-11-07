@@ -17,12 +17,12 @@ import java.util.List;
 
 public class IndianMoviesAdapter extends RecyclerView.Adapter<IndianMoviesAdapter.IndanMovieHolder> implements View.OnClickListener {
 
-    List<IndianMovie> moviesList;
+    List<Maktotat> moviesList;
     allmkktota allmkktota;
     Context context;
     public  static  int position;
 
-    public IndianMoviesAdapter(List<IndianMovie> moviesList, Context context, allmkktota allmkktota) {
+    public IndianMoviesAdapter(List<Maktotat> moviesList, Context context, allmkktota allmkktota) {
         this.moviesList = moviesList;
         this.allmkktota = allmkktota;
         this.context = context;
@@ -40,10 +40,10 @@ public class IndianMoviesAdapter extends RecyclerView.Adapter<IndianMoviesAdapte
     @Override
     public void onBindViewHolder(IndanMovieHolder holder, int position) {
 
-        IndianMovie movie = moviesList.get(position);
-        holder.movietitle.setText(movie.movieName);
-        holder.moviedesc.setText(movie.movieStory+"");
-        Picasso.with(context).load(movie.posterImage).into(holder.poster);
+        Maktotat movie = moviesList.get(position);
+        holder.movietitle.setText(movie.Title);
+        holder.moviedesc.setText(movie.Pages +"");
+        Picasso.with(context).load(movie.Images).into(holder.poster);
 
         holder.lin.setTag(position);
 
@@ -80,14 +80,14 @@ public class IndianMoviesAdapter extends RecyclerView.Adapter<IndianMoviesAdapte
         public void onClick(View view) {
 
              position = (int) view.getTag();
-            IndianMovie movie = moviesList.get(position);
+            Maktotat movie = moviesList.get(position);
 
 
            // Toast.makeText(allmkktota, ""+position, Toast.LENGTH_SHORT).show();
 
             Intent intent = new Intent(allmkktota, gallary.class);
 
-            intent.putExtra("title", movie.movieName);
+            intent.putExtra("title", movie.Title);
 
             allmkktota.startActivity(intent);
 
