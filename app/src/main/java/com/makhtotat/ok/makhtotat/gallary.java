@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -17,9 +16,7 @@ import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -217,65 +214,65 @@ for ( y=0;y<names.a.length;y++){
         });
     }
 
-    private Target target = new Target() {
-        @Override
-        public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
-
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-
-                    File sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                    File folder = new File(sd, "/Picasso/");
-                    if (!folder.exists()) {
-                        if (!folder.mkdir()) {
-                            Log.e("ERROR", "Cannot create a directory!");
-                        } else {
-                            folder.mkdir();
-                        }
-                    }
-
-                    File[] fileName = {new File(folder, "one.jpg"), new File(folder, "two.jpg")};
-
-                    for (int i=0; i<fileName.length; i++) {
-
-                        if (!fileName[i].exists()) {
-                            try {
-                                fileName[i].createNewFile();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        } else {
-
-                            try {
-                                FileOutputStream outputStream = new FileOutputStream(String.valueOf(fileName[i]));
-                                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-                                outputStream.close();
-
-                            } catch (FileNotFoundException e) {
-                                e.printStackTrace();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-                    }
-
-                }
-            }).start();
-
-        }
-
-        @Override
-        public void onBitmapFailed(Drawable errorDrawable) {
-
-        }
-
-        @Override
-        public void onPrepareLoad(Drawable placeHolderDrawable) {
-
-        }
-    };
+//    private Target target = new Target() {
+//        @Override
+//        public void onBitmapLoaded(final Bitmap bitmap, Picasso.LoadedFrom from) {
+//
+//            new Thread(new Runnable() {
+//                @Override
+//                public void run() {
+//
+//                    File sd = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+//                    File folder = new File(sd, "/Picasso/");
+//                    if (!folder.exists()) {
+//                        if (!folder.mkdir()) {
+//                            Log.e("ERROR", "Cannot create a directory!");
+//                        } else {
+//                            folder.mkdir();
+//                        }
+//                    }
+//
+//                    File[] fileName = {new File(folder, "one.jpg"), new File(folder, "two.jpg")};
+//
+//                    for (int i=0; i<fileName.length; i++) {
+//
+//                        if (!fileName[i].exists()) {
+//                            try {
+//                                fileName[i].createNewFile();
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//                        } else {
+//
+//                            try {
+//                                FileOutputStream outputStream = new FileOutputStream(String.valueOf(fileName[i]));
+//                                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+//                                outputStream.close();
+//
+//                            } catch (FileNotFoundException e) {
+//                                e.printStackTrace();
+//                            } catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//
+//                    }
+//
+//                }
+//            }).start();
+//
+//        }
+//
+//        @Override
+//        public void onBitmapFailed(Drawable errorDrawable) {
+//
+//        }
+//
+//        @Override
+//        public void onPrepareLoad(Drawable placeHolderDrawable) {
+//
+//        }
+//    };
 
     private Target targetg = new Target() {
         @Override
